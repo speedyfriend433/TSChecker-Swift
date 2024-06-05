@@ -33,7 +33,7 @@ The TrollStore Support Checker is a tool to verify the compatibility of iOS vers
 - Full Range: [Supported Version Range]
 
 ## Screenshots
-![Screenshot 1](https://github.com/speedyfriend433/TSChecker/assets/171631703/a6d85948-4d1f-417c-b8fd-43d29ef0ea9a)
+![Screenshot 1](https://github.com/speedyfriend433/TSChecker/assets/171631703/d1540d5b-6d61-468e-ac12-2fcc1aa7431b)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
