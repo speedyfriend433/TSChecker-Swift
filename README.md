@@ -40,7 +40,9 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Special Thanks
 Thanks to Lebao Nguyen for the fix of separating arm64 and architecture settings :)
+
 Thanks to SeanIsNotTethered for the build of FridaCodeManager for roothide version :)
+
 Thanks to SamoXCZ for the idea of CanYouJB similarity :)
 
 ## License
