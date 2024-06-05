@@ -6,8 +6,8 @@ enum VersionType: String, CaseIterable {
 }
 
 enum Architecture: String, CaseIterable {
-    case arm64 = "arm64"
-    case arm64e = "arm64e"
+    case arm64
+    case arm64e
 }
 
 struct ContentView: View {
@@ -19,7 +19,7 @@ struct ContentView: View {
     @State private var supportedLinks: [String: String]? = nil
     
     let trollStoreSupportData: [TrollStoreSupportData] = [
-        TrollStoreSupportData(fromVersion: "14.0 beta 1 and earlier", toVersion: "14.0 beta 2", platforms: "arm64 (A8) - arm64 (A9-A11)", supported: [:]),
+        TrollStoreSupportData(fromVersion: "14.0 beta 1", toVersion: "14.0 beta 2", platforms: "arm64 (A8) - arm64 (A9-A11)", supported: [:]),
         TrollStoreSupportData(fromVersion: "14.0 beta 2", toVersion: "14.8.1", platforms: "arm64 (A8) - arm64 (A9-A11)", supported: ["TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
         TrollStoreSupportData(fromVersion: "15.0", toVersion: "15.0", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
         TrollStoreSupportData(fromVersion: "15.0 beta 1", toVersion: "15.5 beta 4", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
@@ -103,29 +103,32 @@ struct ContentView: View {
         let architecture = selectedArchitecture.rawValue
         
         for data in trollStoreSupportData {
-            if compareVersions(version, data.fromVersion) && !compareVersions(version, data.toVersion) {
+            if isVersionInRange(version, fromVersion: data.fromVersion, toVersion: data.toVersion) {
                 if data.platforms.contains(architecture) {
-                    if !data.supported.isEmpty {
-                        return (true, "Supported from \(data.fromVersion) to \(data.toVersion)", data.supported)
-                    }
+                    return (!data.supported.isEmpty, "Supported from \(data.fromVersion) to \(data.toVersion)", data.supported)
                 }
             }
         }
         return (false, nil, nil)
     }
     
-    func compareVersions(_ version1: String, _ version2: String) -> Bool {
-        let version1Components = version1.split(separator: ".").map { Int($0) ?? 0 }
-        let version2Components = version2.split(separator: ".").map { Int($0) ?? 0 }
+    func isVersionInRange(_ version: String, fromVersion: String, toVersion: String) -> Bool {
+        let versionComponents = version.split(separator: " ").first?.split(separator: ".").map { Int($0) ?? 0 } ?? []
+        let fromComponents = fromVersion.split(separator: " ").first?.split(separator: ".").map { Int($0) ?? 0 } ?? []
+        let toComponents = toVersion.split(separator: " ").first?.split(separator: ".").map { Int($0) ?? 0 } ?? []
         
-        for (v1, v2) in zip(version1Components, version2Components) {
+        return compareVersion(versionComponents, to: fromComponents) != .orderedAscending && compareVersion(versionComponents, to: toComponents) != .orderedDescending
+    }
+    
+    func compareVersion(_ version1: [Int], to version2: [Int]) -> ComparisonResult {
+        for (v1, v2) in zip(version1, version2) {
             if v1 < v2 {
-                return false
+                return .orderedAscending
             } else if v1 > v2 {
-                return true
+                return .orderedDescending
             }
         }
-        return version1Components.count >= version2Components.count
+        return .orderedSame
     }
 }
 
