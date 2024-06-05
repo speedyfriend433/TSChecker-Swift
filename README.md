@@ -22,7 +22,6 @@ The TrollStore Support Checker is a tool to verify the compatibility of iOS vers
 - [TrollInstallerX](https://ios.cfw.guide/installing-trollstore-trollinstallerx)
 - [TrollHelperOTA](https://ios.cfw.guide/installing-trollstore-trollhelperota)
 - [TrollInstallerMDC](https://ios.cfw.guide/installing-trollstore-trollinstallermdc)
-- [TrollInstallerX](https://ios.cfw.guide/installing-trollstore-trollinstallerx)
 - [Trollhelper](https://ios.cfw.guide/installing-trollstore-trollhelper)
 - [TrollMisaka](https://ios.cfw.guide/installing-trollstore-trollmisaka)
 
@@ -34,6 +33,9 @@ The TrollStore Support Checker is a tool to verify the compatibility of iOS vers
 
 ## Screenshots
 ![Screenshot 1](https://github.com/speedyfriend433/TSChecker/assets/171631703/d1540d5b-6d61-468e-ac12-2fcc1aa7431b)
+
+## Bugs & Issues
+Currently, it has a bug that doesn't show up specific iOS versions like 15.0, 17.0 . This maybe be fixed in the future.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
