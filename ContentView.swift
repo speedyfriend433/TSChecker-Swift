@@ -6,8 +6,8 @@ enum VersionType: String, CaseIterable {
 }
 
 enum Architecture: String, CaseIterable {
-    case arm64
-    case arm64e
+    case arm64 = "arm64"
+    case arm64e = "arm64e"
 }
 
 struct ContentView: View {
@@ -20,18 +20,18 @@ struct ContentView: View {
     
     let trollStoreSupportData: [TrollStoreSupportData] = [
         TrollStoreSupportData(fromVersion: "14.0 beta 1 and earlier", toVersion: "14.0 beta 2", platforms: "arm64 (A8) - arm64 (A9-A11)", supported: [:]),
-    TrollStoreSupportData(fromVersion: "14.0 beta 2", toVersion: "14.8.1", platforms: "arm64 (A8) - arm64 (A9-A11)", supported: ["TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
-    TrollStoreSupportData(fromVersion: "15.0", toVersion: "15.0", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
-    TrollStoreSupportData(fromVersion: "15.0 beta 1", toVersion: "15.5 beta 4", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
-    TrollStoreSupportData(fromVersion: "15.5", toVersion: "15.5", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollInstallerMDC": "https://ios.cfw.guide/installing-trollstore-trollinstallermdc", "TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
-    TrollStoreSupportData(fromVersion: "16.0 beta 1", toVersion: "16.0 beta 3", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: [:]),
-    TrollStoreSupportData(fromVersion: "16.0 beta 4", toVersion: "16.6.1", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
-    TrollStoreSupportData(fromVersion: "16.7 RC", toVersion: "16.7 RC", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollHelper": "https://ios.cfw.guide/installing-trollstore-trollhelper", "No Install Method": ""]),
-    TrollStoreSupportData(fromVersion: "16.7", toVersion: "16.7.7", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["Unsupported": ""]),
-    TrollStoreSupportData(fromVersion: "17.0 beta 1", toVersion: "17.0 beta 4", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "No Install Method": ""]),
-    TrollStoreSupportData(fromVersion: "17.0 beta 5", toVersion: "17.0", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollHelper": "https://ios.cfw.guide/installing-trollstore-trollhelper", "No Install Method": ""]),
-    TrollStoreSupportData(fromVersion: "17.0.1 and later", toVersion: "17.0.1 and later", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["Unsupported": ""])
-]
+        TrollStoreSupportData(fromVersion: "14.0 beta 2", toVersion: "14.8.1", platforms: "arm64 (A8) - arm64 (A9-A11)", supported: ["TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
+        TrollStoreSupportData(fromVersion: "15.0", toVersion: "15.0", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
+        TrollStoreSupportData(fromVersion: "15.0 beta 1", toVersion: "15.5 beta 4", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
+        TrollStoreSupportData(fromVersion: "15.5", toVersion: "15.5", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollInstallerMDC": "https://ios.cfw.guide/installing-trollstore-trollinstallermdc", "TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
+        TrollStoreSupportData(fromVersion: "16.0 beta 1", toVersion: "16.0 beta 3", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: [:]),
+        TrollStoreSupportData(fromVersion: "16.0 beta 4", toVersion: "16.6.1", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "TrollHelperOTA": "https://ios.cfw.guide/installing-trollstore-trollhelperota"]),
+        TrollStoreSupportData(fromVersion: "16.7 RC", toVersion: "16.7 RC", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollHelper": "https://ios.cfw.guide/installing-trollstore-trollhelper", "No Install Method": ""]),
+        TrollStoreSupportData(fromVersion: "16.7", toVersion: "16.7.7", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["Unsupported": ""]),
+        TrollStoreSupportData(fromVersion: "17.0 beta 1", toVersion: "17.0 beta 4", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollInstallerX": "https://ios.cfw.guide/installing-trollstore-trollinstallerx", "No Install Method": ""]),
+        TrollStoreSupportData(fromVersion: "17.0 beta 5", toVersion: "17.0", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["TrollHelper": "https://ios.cfw.guide/installing-trollstore-trollhelper", "No Install Method": ""]),
+        TrollStoreSupportData(fromVersion: "17.0.1 and later", toVersion: "17.0.1 and later", platforms: "arm64 (A8) - arm64e (A12-A17/M1-M2)", supported: ["Unsupported": ""])
+    ]
     
     var body: some View {
         NavigationView {
@@ -56,6 +56,7 @@ struct ContentView: View {
                     Section(header: Text("iOS Version")) {
                         TextField("Enter iOS Version", text: $iOSVersion)
                             .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .keyboardType(.decimalPad)
                     }
                     
                     Section {
@@ -98,19 +99,33 @@ struct ContentView: View {
     }
     
     func trollStoreSupportInfo(for iOSVersion: String) -> (supported: Bool, supportedRange: String?, supportedLinks: [String: String]?) {
-        let version = selectedVersionType == .beta ? "\(iOSVersion) \(selectedVersionType.rawValue)" : iOSVersion
+        let version = selectedVersionType == .beta ? "\(iOSVersion) beta" : iOSVersion
         let architecture = selectedArchitecture.rawValue
         
         for data in trollStoreSupportData {
-            if version >= data.fromVersion && version <= data.toVersion {
-                if let supportedPlatforms = data.supported[architecture], !supportedPlatforms.isEmpty {
-                    return (true, "Supported platforms: \(supportedPlatforms), Full Range: \(data.fromVersion) - \(data.toVersion)", data.supported)
-                } else {
-                    return (false, nil, nil)
+            if compareVersions(version, data.fromVersion) && !compareVersions(version, data.toVersion) {
+                if data.platforms.contains(architecture) {
+                    if !data.supported.isEmpty {
+                        return (true, "Supported from \(data.fromVersion) to \(data.toVersion)", data.supported)
+                    }
                 }
             }
         }
         return (false, nil, nil)
+    }
+    
+    func compareVersions(_ version1: String, _ version2: String) -> Bool {
+        let version1Components = version1.split(separator: ".").map { Int($0) ?? 0 }
+        let version2Components = version2.split(separator: ".").map { Int($0) ?? 0 }
+        
+        for (v1, v2) in zip(version1Components, version2Components) {
+            if v1 < v2 {
+                return false
+            } else if v1 > v2 {
+                return true
+            }
+        }
+        return version1Components.count >= version2Components.count
     }
 }
 
